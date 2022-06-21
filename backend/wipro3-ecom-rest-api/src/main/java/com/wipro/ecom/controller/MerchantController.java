@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.wipro.ecom.entity.AuthRequest;
 import com.wipro.ecom.entity.Merchant;
 import com.wipro.ecom.service.MerchantService;
 
@@ -51,5 +52,26 @@ public class MerchantController {
 	public Merchant deleteMerchant(@PathVariable("id") Integer id)
 	{
 		return ms.delete(id);
+	}
+	
+	@PostMapping("/login")
+	public Merchant validateLogin(@RequestBody AuthRequest authRequest)
+	{
+		Integer id=authRequest.getId();
+		Merchant x = findMerchantById(id);
+		boolean status=false;
+		if(x!=null)
+		{
+			if(x.getPassword().equals(authRequest.getPassword()))
+			{
+				//success
+				status=true;
+			}
+		}
+		if(!status)
+		{
+			x=null;
+		}
+		return x;
 	}
 }

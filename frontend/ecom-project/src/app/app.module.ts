@@ -6,11 +6,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MerchantRegistrationComponent } from './merchant-registration/merchant-registration.component';
 import { HttpClientModule } from '@angular/common/http';
+import { MerchantLoginComponent } from './merchant-login/merchant-login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MerchantRegistrationComponent
+    MerchantRegistrationComponent,
+    MerchantLoginComponent
   ],
   imports: [
     BrowserModule,

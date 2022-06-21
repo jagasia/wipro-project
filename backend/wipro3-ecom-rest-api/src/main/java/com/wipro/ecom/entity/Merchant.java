@@ -14,6 +14,7 @@ public class Merchant {
 	private String gstin;
 	private String email;
 	private String contact;
+	private String password;
 	
 	public Merchant() {}
 
@@ -24,6 +25,16 @@ public class Merchant {
 		this.gstin = gstin;
 		this.email = email;
 		this.contact = contact;
+	}
+	
+	public Merchant(Integer id, String name, String gstin, String email, String contact, String password) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.gstin = gstin;
+		this.email = email;
+		this.contact = contact;
+		this.password=password;
 	}
 
 	public Integer getId() {
@@ -64,6 +75,16 @@ public class Merchant {
 
 	public void setContact(String contact) {
 		this.contact = contact;
+	}
+
+	
+	
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	@Override

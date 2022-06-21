@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import { MerchantRegistrationService } from '../merchant-registration.service';
+import { MerchantService } from '../merchant-registration.service';
 
 @Component({
   selector: 'app-merchant-registration',
@@ -10,12 +10,14 @@ import { MerchantRegistrationService } from '../merchant-registration.service';
 export class MerchantRegistrationComponent implements OnInit {
   merchantRegistrationForm:any;
 
-  constructor(private fb:FormBuilder, private mrs:MerchantRegistrationService) {
+  constructor(private fb:FormBuilder, private mrs:MerchantService) {
     this.merchantRegistrationForm=this.fb.group({
       contact: [],
       email: [],
       gstin: [],
-      name: []
+      name: [],
+      password:[],
+      cpassword:[]
     });
    }
 

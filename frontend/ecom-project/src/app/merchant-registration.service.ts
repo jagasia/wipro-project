@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class MerchantRegistrationService {
+export class MerchantService {
   URL='http://localhost:8081/merchant';
 
   constructor(private http:HttpClient) { }
@@ -12,5 +12,10 @@ export class MerchantRegistrationService {
   fnCreate(merchant:any)
   {
     return this.http.post(this.URL,merchant);
+  }
+
+  fnLogin(authRequest:any)
+  {
+    return this.http.post(this.URL+"/login",authRequest);
   }
 }
