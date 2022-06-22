@@ -1,9 +1,14 @@
 package com.wipro.ecom.entity;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Merchant {
@@ -15,6 +20,9 @@ public class Merchant {
 	private String email;
 	private String contact;
 	private String password;
+	@JsonIgnore
+	@OneToMany(mappedBy = "merchant")
+	private List<Product> products;
 	
 	public Merchant() {}
 
@@ -35,6 +43,20 @@ public class Merchant {
 		this.email = email;
 		this.contact = contact;
 		this.password=password;
+	}
+	
+	
+
+	public Merchant(Integer id, String name, String gstin, String email, String contact, String password,
+			List<Product> products) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.gstin = gstin;
+		this.email = email;
+		this.contact = contact;
+		this.password = password;
+		this.products = products;
 	}
 
 	public Integer getId() {
@@ -85,6 +107,16 @@ public class Merchant {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	
+	
+	public List<Product> getProducts() {
+		return products;
+	}
+
+	public void setProducts(List<Product> products) {
+		this.products = products;
 	}
 
 	@Override
