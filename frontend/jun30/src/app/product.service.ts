@@ -18,4 +18,9 @@ export class ProductService {
   {
     return this.http.post(this.URL+"/add",product);
   }
+
+  fnFindProductById(id:any)
+  {
+    return this.http.get(this.URL+"/"+id);
+  }
 }

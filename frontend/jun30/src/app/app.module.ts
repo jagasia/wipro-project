@@ -7,12 +7,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { DisplayProductComponent } from './display-product/display-product.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddProductComponent } from './add-product/add-product.component';
+import { ViewCartComponent } from './view-cart/view-cart.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DisplayProductComponent,
-    AddProductComponent
+    AddProductComponent,
+    ViewCartComponent
   ],
   imports: [
     BrowserModule,

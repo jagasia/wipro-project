@@ -13,54 +13,50 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.wipro.ecom.api.ProductApi;
-import com.wipro.ecom.entity.Customer;
-import com.wipro.ecom.entity.Product;
-import com.wipro.ecom.service.CustomerService;
+import com.wipro.ecom.entity.Cart;
+import com.wipro.ecom.service.CartService;
 
 @RestController
-@RequestMapping("/customer")
 @CrossOrigin(origins = {"http://localhost:4200"})
-public class CustomerController {
+@RequestMapping("/cart")
+public class CartController {
 	@Autowired
-	private CustomerService cs;
+	private CartService cs;
 	
-	@Autowired
-	private ProductApi pa;
+	@PostMapping
+	public Cart addToCart(@RequestBody Cart cart)
+	{
+		System.out.println(cart);
+		return cs.create(cart);
+	}
 	
 	@GetMapping
-	public List<Customer> getAllCustomers()
+	public List<Cart> getAllCart()
 	{
 		return cs.read();
 	}
 	
 	@GetMapping("/{id}")
-	public Customer findCustomerById(@PathVariable("id")Integer id)
-	{
+	public Cart findCartById(@PathVariable("id") Integer id)
+	{		
 		return cs.read(id);
 	}
 	
-	@PostMapping
-	public Customer addCustomer(@RequestBody Customer customer)
-	{
-		return cs.create(customer);
-	}
-	
 	@PutMapping
-	public Customer updateCustomer(@RequestBody Customer customer)
+	public Cart updateCart(@RequestBody Cart cart)
 	{
-		return cs.update(customer);
+		return cs.update(cart);
 	}
 	
 	@DeleteMapping("/{id}")
-	public Customer deleteCustomer(@PathVariable("id")Integer id)
+	public Cart deleteCart(@PathVariable("id") Integer id)
 	{
 		return cs.delete(id);
 	}
 	
-	@GetMapping("/products")
-	public List<Product> getAllProducts()
+	@GetMapping("/customer/{cid}")
+	public List<Cart> findCartByCid(@PathVariable("cid") Integer cid)
 	{
-		return pa.getAllProducts();
+		return cs.findCartByCustomerId(cid);
 	}
 }
