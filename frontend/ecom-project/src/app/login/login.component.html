@@ -1,0 +1,9 @@
+<h3 class="text-center">Login Form</h3>
+<form [formGroup]="loginForm">
+    User Name: <input type="text" name="" id="" formControlName="userName" class="form-control">
+    Password: <input type="password" name="" id="" formControlName="password" class="form-control">
+    <br>
+    <input type="button" value="Login" class="btn btn-success" (click)="fnLogin()">&nbsp;
+    <input type="reset" value="Reset" class="btn btn-warning">
+</form>
+{{loginForm.value | json}}

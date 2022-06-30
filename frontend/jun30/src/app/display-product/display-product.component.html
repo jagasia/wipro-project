@@ -1,0 +1,31 @@
+<p>display-product works!</p>
+
+<div class="container">
+    <div *ngFor="let p of products" class="card" style="width:400px">
+      <!-- <img class="card-img-top" src="img_avatar1.png" alt="Card image" style="width:100%"> -->
+      <img width="100" height="100" [src]="'data:image/png;base64,'+p.picture" alt="">
+      <div class="card-body">
+        <h4 class="card-title">{{p.name}}</h4>
+        <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
+        <!-- <a href="#" class="btn btn-primary stretched-link">See Profile</a> -->
+        <input type="button" value="Add to Cart!" class="btn btn-primary" (click)="fnAddToCart(p.id)">
+      </div>
+    </div>
+  </div>
+
+<table class="table table-bordered table-striped table-hover">
+    <thead>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Price</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let p of products">
+            <!-- <td>{{p.price}}</td> -->
+            <td>{{p.id}}</td>
+            <td>{{p.name}}</td>
+            <td>{{p.price}}</td>
+        </tr>
+    </tbody>
+
+</table>

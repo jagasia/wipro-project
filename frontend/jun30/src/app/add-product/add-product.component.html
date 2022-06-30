@@ -1,0 +1,10 @@
+<p>add-product works!</p>
+
+<form [formGroup]="addProductForm">
+    Name: <input type="text" name="" id="" formControlName="name" class="form-control">
+    Price: <input type="text" name="" id="" formControlName="price" class="form-control">
+    Picture: <input type="file" name="" id="" formControlName="picture" class="form-control" (change)="fnChange($event)">
+
+    <br>
+    <input type="button" value="Add" class="btn btn-success" (click)="fnAdd()">
+</form>

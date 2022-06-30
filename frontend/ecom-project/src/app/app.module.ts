@@ -7,12 +7,16 @@ import { AppComponent } from './app.component';
 import { MerchantRegistrationComponent } from './merchant-registration/merchant-registration.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MerchantLoginComponent } from './merchant-login/merchant-login.component';
+import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MerchantRegistrationComponent,
-    MerchantLoginComponent
+    MerchantLoginComponent,
+    LoginComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
